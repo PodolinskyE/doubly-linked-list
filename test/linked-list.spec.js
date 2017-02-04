@@ -34,6 +34,8 @@ describe('LinkedList', () => {
         });
 
     });
+
+    
     describe('#head', () => {
         const list = new LinkedList();
         it('should return data from the this.head', () => {
@@ -54,6 +56,7 @@ describe('LinkedList', () => {
             expect(list.tail()).to.equal(data)
         });
     });
+    
     describe('#at', () => {
         it('should return Node.data by index', () => {
             const list = new LinkedList();
@@ -68,6 +71,7 @@ describe('LinkedList', () => {
 
         });
     });
+
     describe('#insertAt', () => {
         it('should insert data by index', () => {
             const list = new LinkedList();
@@ -82,6 +86,7 @@ describe('LinkedList', () => {
             expect(list.at(position)).to.equal(data);
         });
     });
+    
     describe('#isEmpty', () => {
         it('should return true if list is empty', () => {
             const list = new LinkedList();
@@ -93,7 +98,6 @@ describe('LinkedList', () => {
             expect(list.isEmpty()).to.be.false;
         });
     });
-
     describe('#clear', () => {
         it('should clear the list', () => {
             const list = new LinkedList();
@@ -108,6 +112,29 @@ describe('LinkedList', () => {
             expect(list.length).to.equal(0);
         });
     });
+
+    describe('#getAt', () => {
+        it('should delete element by index', () => {
+            const list = new LinkedList();
+
+            list.append(1);
+            list.append(2);
+            list.append(3);
+            list.append(4);
+            list.append(5);
+
+            // list.deleteAt(2);
+            expect(list.getAt(4)).to.be.an.instanceof(Node);
+            expect(list.at(4)).to.equal(5);
+            expect(list.getAt(4).data).to.equal(5);
+            expect(list.getAt(4).index).to.equal(4);
+
+            // expect(list.at(2)).to.equal(4);
+        });
+    });
+
+
+
     describe('#deleteAt', () => {
         it('should delete element by index', () => {
             const list = new LinkedList();
@@ -123,6 +150,7 @@ describe('LinkedList', () => {
             expect(list.at(2)).to.equal(4);
         });
     });
+
     describe('#reverse', () => {
         it('should reverse the list', () => {
             const list = new LinkedList();
@@ -164,6 +192,8 @@ describe('LinkedList', () => {
             expect(list.indexOf(3)).to.equal(-1);
         })
     });
+
+    
     describe('chaining', () => {
         it('append reverse deleteAt insertAt methods should be chainable', () => {
             const list = new LinkedList();
